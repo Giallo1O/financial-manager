@@ -1,0 +1,178 @@
+/* src/App.css */
+.app-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h2,
+h3 {
+  color: #2c3e50;
+}
+
+/* Contenitore griglia per affiancare i componenti */
+.dashboard-grid {
+  display: flex;
+  gap: 30px; /* Spazio tra grafico e tabella */
+  align-items: flex-start; /* Allinea in alto */
+  margin-top: 20px;
+}
+
+/* Le due "scatole" devono prendere lo stesso spazio */
+.chart-box,
+.table-box {
+  flex: 1; /* Ognuno prende il 50% dello spazio disponibile */
+  background: #fff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  min-width: 400px; /* Evita che diventino troppo piccoli */
+}
+
+/* Stile base per la tabella */
+.expense-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+}
+
+.expense-table th,
+.expense-table td {
+  text-align: left;
+  padding: 12px;
+  border-bottom: 1px solid #eee;
+}
+
+.expense-table th {
+  background-color: #f8f9fa;
+  color: #7f8c8d;
+}
+
+/* Stati di caricamento ed errore */
+.loading-container,
+.error-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 50px;
+  font-size: 1.2rem;
+}
+
+.error-container {
+  color: #e74c3c;
+}
+.spin {
+  animation: spin 1s linear infinite;
+}
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive: se lo schermo è piccolo, mettili uno sotto l'altro */
+@media (max-width: 900px) {
+  .dashboard-grid {
+    flex-direction: column;
+  }
+  .chart-box,
+  .table-box {
+    width: 100%;
+    min-width: auto;
+  }
+}
+
+.auth-container {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+.auth-card {
+  background: white;
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.auth-header h1 {
+  color: #3498db;
+  margin-bottom: 10px;
+}
+.auth-header p {
+  color: #7f8c8d;
+  margin-bottom: 30px;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.input-group {
+  display: flex;
+  align-items: center;
+  background: #f8f9fa;
+  padding: 10px 15px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  gap: 10px;
+  color: #7f8c8d;
+}
+
+.input-group input {
+  border: none;
+  background: transparent;
+  width: 100%;
+  outline: none;
+}
+
+.auth-submit {
+  background: #3498db;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.auth-error {
+  color: #e74c3c;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.auth-footer button {
+  background: none;
+  border: none;
+  color: #3498db;
+  margin-top: 20px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.logout-btn {
+  background: #e74c3c;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
