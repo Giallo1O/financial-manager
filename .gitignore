@@ -1,3 +1,7 @@
 /.metadata/
 /Tomcat/
 /Servers/
+*.log
+*.tmp
+*.bak
+**/static/**

@@ -4,6 +4,7 @@ import java.util.List;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
@@ -18,8 +19,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class User {
 
-	@GeneratedValue
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private String id;
 
 	private String name;
@@ -31,7 +32,9 @@ public class User {
 	private String country;
 
 	private String email;
-	
+
+	private String password;
+
 	@OneToMany
 	private List<Transaction> transactions;
 

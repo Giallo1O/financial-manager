@@ -17,7 +17,12 @@ public class UserService {
 	}
 
 	public boolean addUser(User user) {
-		return userRepository.save(user) != null;
+		try {
+			return userRepository.save(user) != null;
+		} catch (Exception e) {
+			System.out.println(e);
+			return false;
+		}
 	}
 
 	public boolean deleteUser(String id) throws Exception {
