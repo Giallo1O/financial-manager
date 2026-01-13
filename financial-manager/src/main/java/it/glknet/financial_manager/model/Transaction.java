@@ -18,15 +18,15 @@ public class Transaction {
 	@Id
 	private String id;
 
+	private String bankId;
+
 	@ManyToOne
 	private User user;
 
-	//private Category categoryId;
+	private String categoryId;
 
 	private String date;
 
 	private double price;
-	
-	
 
 }

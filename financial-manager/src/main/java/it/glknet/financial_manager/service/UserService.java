@@ -13,7 +13,7 @@ public class UserService {
 	private UserRepository userRepository;
 
 	public User getUser(String id) {
-		return userRepository.getById(id);
+		return userRepository.getReferenceById(id);
 	}
 
 	public boolean addUser(User user) {
