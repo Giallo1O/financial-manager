@@ -68,3 +68,53 @@ export const registerRequest = async (userData) => {
   await delay(800);
   return { data: { message: "Registrazione completata!" } };
 };
+
+// ---------------------------------------------------
+// Sezione API add Transaction
+// --------------------------------------------
+
+// Mock delle categorie disponibili
+export const getCategories = async () => {
+  await delay(300);
+  return {
+    data: [
+      "Alimentari",
+      "Casa",
+      "Svago",
+      "Lavoro",
+      "Trasporti",
+      "Salute",
+      "Shopping",
+    ],
+  };
+};
+
+// Simulazione salvataggio nuova transazione
+export const saveTransaction = async (transaction) => {
+  await delay(500);
+  console.log("Inviando al BE:", transaction);
+  return { status: 201, data: { message: "Salvataggio riuscito" } };
+};
+
+// Mock delle ultime transazioni inserite (per la tabella in basso)
+export const getRecentAdded = async () => {
+  await delay(400);
+  return {
+    data: [
+      {
+        id: 101,
+        date: "2026-01-09",
+        cat: "Alimentari",
+        amount: -25.5,
+        desc: "Manuale",
+      },
+      {
+        id: 102,
+        date: "2026-01-08",
+        cat: "Lavoro",
+        amount: 50.0,
+        desc: "Manuale",
+      },
+    ],
+  };
+};

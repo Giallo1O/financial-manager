@@ -1,6 +1,13 @@
 import React, { useState, useEffect } from "react";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Dashboard from "./components/Dashboard";
-import AuthPage from "./components/AuthPage";
+import AddTransactionPage from "./components/AddTransactionPage";
+// src/main.jsx o App.jsx
+import "./styles/variables.css";
+import "./styles/layout.css";
+import "./styles/dashboard.css";
+import "./styles/addTransaction.css";
+// import "./styles/auth.css";
 import "./App.css";
 
 function App() {
@@ -18,23 +25,21 @@ function App() {
   };
 
   return (
-    <div className="app-container">
-      {!token ? (
-        <AuthPage onLoginSuccess={handleLogin} />
-      ) : (
-        <>
-          <header className="main-header">
-            <h1>💰 My Financial Portfolio</h1>
-            <button onClick={handleLogout} className="logout-btn">
-              Esci
-            </button>
-          </header>
-          <main>
-            <Dashboard />
-          </main>
-        </>
-      )}
-    </div>
+    <Router>
+      <div className="app-container">
+        <nav className="main-nav">
+          <Link to="/">Dashboard</Link>
+          <Link to="/nuova">Aggiungi Transazione</Link>
+		  <Link>💰 My Financial Portfolio</Link>
+		  <button onClick={handleLogout} className="logout-btn">
+        </nav>
+
+        <Routes>
+          <Route path="/" element={<Dashboard />} />
+          <Route path="/nuova" element={<AddTransactionPage />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
